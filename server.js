@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
 });
 
 // Chat route
-app.post("https://chatbot-w4ww.onrender.com/chat", async (req, res) => {
+app.post("/chat", async (req, res) => {
   try {
     const prompt = req.body.message;
     const result = await model.generateContent(prompt);
@@ -34,5 +34,6 @@ app.post("https://chatbot-w4ww.onrender.com/chat", async (req, res) => {
 app.listen(3000, () => {
   console.log("🚀 Server running on http://localhost:3000");
 });
+
 
 
