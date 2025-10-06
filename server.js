@@ -14,12 +14,12 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Root route
-app.get("https://chatbot-w4ww.onrender.com/chat", (req, res) => {
+app.get("/", (req, res) => {
   res.send("✅ Gemini Chatbot Server Running! Use /chat endpoint.");
 });
 
 // Chat route
-app.post("/chat", async (req, res) => {
+app.post("https://chatbot-w4ww.onrender.com/chat", async (req, res) => {
   try {
     const prompt = req.body.message;
     const result = await model.generateContent(prompt);
@@ -34,4 +34,5 @@ app.post("/chat", async (req, res) => {
 app.listen(3000, () => {
   console.log("🚀 Server running on http://localhost:3000");
 });
+
 
