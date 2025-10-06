@@ -14,7 +14,7 @@ const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Root route
-app.get("/", (req, res) => {
+app.get("https://chatbot-w4ww.onrender.com/chat", (req, res) => {
   res.send("✅ Gemini Chatbot Server Running! Use /chat endpoint.");
 });
 
@@ -34,3 +34,4 @@ app.post("/chat", async (req, res) => {
 app.listen(3000, () => {
   console.log("🚀 Server running on http://localhost:3000");
 });
+
